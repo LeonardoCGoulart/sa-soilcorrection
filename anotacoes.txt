@@ -1,0 +1,46 @@
+Este arquivo representa um conjunto de anotações para buscar entender a origem
+das células, suas funções e comportamentos da planilha.
+
+///////
+sabe-se que "% de participação do CÁLCIO na CTC, desejada"
+	altera:
+	- apos as correções 
+	- Quantidade a aplicar
+	- apos as correções
+	- apos as correções magnésio
+///////	
+entendendo Fonte Corretivo a usar:
+
+SE(D52=1;"Calcário Dolomítico";SE(D52=2;"Calcário Calcítico";SE(D52=3;"Calcário de Concha";SE(D52=4;"Gesso Agrícola";SE(D52=5;"Hidróxido de Cálcio";SE(D52=6;"Calcário Magnesiano")
+de acordo com um numero retorna uma string.
+
+//////
+	entendendo o "quantidade a aplicar" ton./ha (V54)
+		S66 + 0
+		
+		S66 = t70*100/c53
+		S66 (T70) = f113(calculo) = Quantidade de corretivo a incorporar: = O117
+		S66 (C53) = PRNT % (ENTRADA DE DADO)
+		
+		x da questão = achar o que o t70 faz
+	
+		dados referentes ao t70 O117
+		se P88>0,0001 return p88 else return 0
+		se P91>0,0001 return p91 else return 0
+		P91 = 'Memória de cálculo'!F96/'Memória de cálculo'!G109
+		P91 = Teor de CaO a adicionar: (memoria calculo) / Quantidade de Cálcio adicionada total (memoria calculo)
+		
+		F96 = =('EQUILIBRIO E CORREÇÃO NA CTC'!F11*'EQUILIBRIO E CORREÇÃO NA CTC'!E51/'EQUILIBRIO E CORREÇÃO NA CTC'!E48)-'EQUILIBRIO E CORREÇÃO NA CTC'!F11-J99
+		G109 = =I107+I105
+		
+		i105 = ='EQUILIBRIO E CORREÇÃO NA CTC'!P129*A105/1000
+		I107 = E101*0,01783
+		
+		Teor de CaO a adicionar [F96] = 'EQUILIBRIO E CORREÇÃO NA CTC'!F11*'EQUILIBRIO E CORREÇÃO NA CTC'!E51/'EQUILIBRIO E CORREÇÃO NA CTC'!E48)-'EQUILIBRIO E CORREÇÃO NA CTC'!F11-I105
+		Teor de CaO a adicionar = cmol-calcio [f11] * %CÁLCIO na CTC, desejada: [E51] /Participação atual na CTC do solo: [E48] )- calcio cmol [F11] - Quantidade adicionada /Ha(memoria): [I105]
+		
+		i105 = EQUILIBRIO E CORREÇÃO NA CTC'!P129*A105/1000
+			- P129(correcao) = M22/2,42
+			- A105 = ='EQUILIBRIO E CORREÇÃO NA CTC'!AM40 = F51 (correção)
+///////
+

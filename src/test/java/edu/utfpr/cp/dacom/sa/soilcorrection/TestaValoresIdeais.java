@@ -49,7 +49,7 @@ public class TestaValoresIdeais {
                 assertEquals(7.54, new EquilibrioCorrecaoCTC().calculaSCmol(0.15, 5.76, 1.63));
 
         }
-
+        
         @Test
         public void testaCalculaCTCCmol() {
                 assertEquals(12.89, new EquilibrioCorrecaoCTC().calculaCTCCmol(0.15, 5.76, 1.63, 5.35));
@@ -67,10 +67,70 @@ public class TestaValoresIdeais {
         public void testaMOPercentual() {
                 assertEquals(3.07, new EquilibrioCorrecaoCTC().calculaMOPercentual(30.7));
         }
+        
+        @Test
+        public void testaNomeCorretivoCalcarioDolomitico() {
+                assertEquals("CALCARIO DOLOMITICO", new NomeCorretivo().getNomeCorretivo(1));
+        }
+        
+        @Test
+        public void testaNomeCorretivoCalcarioCalcitico() {
+                assertEquals("CALCARIO CALCITICO", new NomeCorretivo().getNomeCorretivo(2));
+        }
+        
+        @Test
+        public void testaNomeCorretivoCalcarioDeConcha() {
+                assertEquals("CALCARIO DE CONCHA", new NomeCorretivo().getNomeCorretivo(3));
+        }
+        
+        @Test
+         public void testaNomeCorretivoGessoAgricola() {
+                assertEquals("GESSO AGRICOLA", new NomeCorretivo().getNomeCorretivo(4));
+        }
+         
+         @Test
+         public void testaNomeCorretivoHidroxidoDeCalcio() {
+                assertEquals("HIDROXIDO DE CALCIO", new NomeCorretivo().getNomeCorretivo(5));
+        }
+         
+         @Test
+          public void testaNomeCorretivoHidroxidoDeCalcarioMagnesiano() {
+                assertEquals("CALCARIO MAGNESIANO", new NomeCorretivo().getNomeCorretivo(6));
+        }
+
+         @Test
+        public void testaIdCorretivoDolomitico() {
+                assertEquals(1, new NomeCorretivo().getIDByNomeCorretivo("CALCARIO DOLOMITICO"));
+        }
+         @Test
+        public void testaIdCorretivoCalcitico() {
+                assertEquals(2, new NomeCorretivo().getIDByNomeCorretivo("CALCARIO CALCITICO"));
+        }
+         @Test
+        public void testaIdCorretivoCalcarioConcha() {
+                assertEquals(3, new NomeCorretivo().getIDByNomeCorretivo("CALCARIO DE CONCHA"));
+        }
+         @Test
+        public void testaIdCorretivoGessoAgricola() {
+                assertEquals(4, new NomeCorretivo().getIDByNomeCorretivo("GESSO AGRICOLA"));
+        }
+         @Test
+        public void testaIdCorretivoHidroDeCalcio() {
+                assertEquals(5, new NomeCorretivo().getIDByNomeCorretivo("HIDROXIDO DE CALCIO"));
+        }
+         @Test
+        public void testaIdCorretivoCalcarioMagnesiano() {
+                assertEquals(6, new NomeCorretivo().getIDByNomeCorretivo("CALCIO MAGNESIANO"));
+        }
+        
 
         @Test
         public void testaCalculaCarbono() {
                 assertEquals(17.848837209302324, new EquilibrioCorrecaoCTC()
                                 .calculaCarbono(new EquilibrioCorrecaoCTC().calculaMOPercentual(30.7)));
         }
+       
+ 
+
+        
 }
