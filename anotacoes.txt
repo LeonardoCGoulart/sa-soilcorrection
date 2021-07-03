@@ -44,3 +44,14 @@ de acordo com um numero retorna uma string.
 			- A105 = ='EQUILIBRIO E CORREÇÃO NA CTC'!AM40 = F51 (correção)
 ///////
 
+	entendendo o "após correções"
+		formado por: H13/R6*100
+		
+		h13 = quantidade ideal magnésio 
+		
+		r6 = r5 (soma nutrientes) + l11 (entrada de dados H + AL)
+		
+		retorno * 100 para dar certo a %
+		
+//////
+
