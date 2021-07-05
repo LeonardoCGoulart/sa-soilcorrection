@@ -55,3 +55,21 @@ de acordo com um numero retorna uma string.
 		
 //////
 
+	Ideal Calcio: SE(C6=1;"45 a 55";SE(C6=2;"35 a 40";"")) onde C6 = textura de solo
+	Ideal Magnesio: =SE(C6=1;"10 a 15";SE(C6=2;"8 a 12";"")) onde C6 = textura de solo
+
+/////
+	'após correções' calcio
+	
+	AD26/R6*100
+	AD26 = =F11+O179
+	R6 = =R5+L11 (ja tenho dados desse calculo no do magnesio)
+	x da questão = pegar o o179 para formar o ad26
+
+	F11(AD26) = QUANTIDADE CALCIO (ENTRADA DE DADOS)
+	O179(AD26) = P129*A105/1000 
+	P129 = M22/2,42
+	M22 = E50+F36
+	E50 = V53 = AD26/R6*100 (CICLO?)
+	F36 = F35 = ENTRADA DE DADOS 
+	A105 = 'EQUILIBRIO E CORREÇÃO NA CTC'!AM40 = SE(D23=1;"0,49924";SE(D23=2;"0,33877";SE(D23=3;"0,0";SE(D23=4;"0,0";SE(D23=5;"0,49924";SE(D23=6;"0,92716";SE(D23>=7;AM41;""))))))) ONDE D23 = entrada de dados int

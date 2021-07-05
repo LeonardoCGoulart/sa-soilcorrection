@@ -11,5 +11,7 @@ public class TestaCorrecaoMagnesio {
         double somaPotassioCalcioMagnesio = new CorrecaoMagnesio().somaPotassioCalcioMagnesio(0.15, 5.76, 1.63);
         assertEquals(13.886733902249807, new CorrecaoMagnesio().CalculaCorrecao(1.79,somaPotassioCalcioMagnesio,5.35));
     }
+    
+
 
 }

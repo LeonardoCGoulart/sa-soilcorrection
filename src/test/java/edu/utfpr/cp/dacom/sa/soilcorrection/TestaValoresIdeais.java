@@ -66,6 +66,12 @@ public class TestaValoresIdeais {
         @Test
         public void testaMOPercentual() {
                 assertEquals(3.07, new EquilibrioCorrecaoCTC().calculaMOPercentual(30.7));
+        }        
+        
+        @Test
+        public void testaCalculaCarbono() {
+                assertEquals(17.848837209302324, new EquilibrioCorrecaoCTC()
+                                .calculaCarbono(new EquilibrioCorrecaoCTC().calculaMOPercentual(30.7)));
         }
         
         @Test
@@ -123,12 +129,26 @@ public class TestaValoresIdeais {
                 assertEquals(6, new NomeCorretivo().getIDByNomeCorretivo("CALCIO MAGNESIANO"));
         }
         
-
-        @Test
-        public void testaCalculaCarbono() {
-                assertEquals(17.848837209302324, new EquilibrioCorrecaoCTC()
-                                .calculaCarbono(new EquilibrioCorrecaoCTC().calculaMOPercentual(30.7)));
+        @Test 
+        public void testaMagnesioIdealArgiloso(){
+             assertEquals("10 a 15", new CorrecaoMagnesio().getMagnesioIdeal(1));
         }
+
+        @Test 
+        public void testaMagnesioIdealTexturaMedia(){
+             assertEquals("8 a 12", new CorrecaoMagnesio().getMagnesioIdeal(2));
+        }
+
+        @Test 
+        public void testaCalcioIdealArgiloso(){
+             assertEquals("45 a 55", new CorrecaoCalcio().getCalcioIdeal(1));
+        }
+
+        @Test 
+        public void testaCalcioIdealTexturaMedia(){
+             assertEquals("35 a 40", new CorrecaoCalcio().getCalcioIdeal(2));
+        }
+        
        
  
 
