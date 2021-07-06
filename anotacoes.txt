@@ -63,13 +63,46 @@ de acordo com um numero retorna uma string.
 	
 	AD26/R6*100
 	AD26 = =F11+O179
-	R6 = =R5+L11 (ja tenho dados desse calculo no do magnesio)
+	R6 = =R5+L11 (ja tenho os dados r6 (somaNutriente + Hal))
 	x da questão = pegar o o179 para formar o ad26
 
 	F11(AD26) = QUANTIDADE CALCIO (ENTRADA DE DADOS)
-	O179(AD26) = P129*A105/1000 
-	P129 = M22/2,42
-	M22 = E50+F36
-	E50 = V53 = AD26/R6*100 (CICLO?)
-	F36 = F35 = ENTRADA DE DADOS 
-	A105 = 'EQUILIBRIO E CORREÇÃO NA CTC'!AM40 = SE(D23=1;"0,49924";SE(D23=2;"0,33877";SE(D23=3;"0,0";SE(D23=4;"0,0";SE(D23=5;"0,49924";SE(D23=6;"0,92716";SE(D23>=7;AM41;""))))))) ONDE D23 = entrada de dados int
+	O179(AD26) = 'Memória de cálculo'!G111+'Memória de cálculo'!I105
+		G111(memoria) = novo método (Quantidade de Cálcio adicionada /Ha:) = G109*F113
+			G109 = novo método(Quantidade de Cálcio adicionada total:)= =I107+I105
+				I107 = E101*0,01783
+					E101 = talvez novo método(Teor de CaO do corretivo em %:) = SE(G101>0,01;G101;J102)
+						G101 = ='EQUILIBRIO E CORREÇÃO NA CTC'!D54 (valor do true)
+							D24 = corretivo: (entrada de dados, geralmente 0)
+						J102= 'EQUILIBRIO E CORREÇÃO NA CTC'!O102 (valor se false)
+							O102 = =SE(D52=1;"30,4";SE(D52=2;"56";SE(D52=3;"54";SE(D52=4;"29";SE(D52=5;"75,7";SE(D52=6;"35";""))))))
+								onde D52 = Fonte de Corretivo a usar (entrada de dados int)
+				I105 = Quantidade adicionada /Ha(fostagem) = ='EQUILIBRIO E CORREÇÃO NA CTC'!P129*A105/1000
+					P129 = M22/2,42
+						M22 = =SE(D23=1;'Memória de cálculo'!B24*0,28;SE(D23=2;'Memória de cálculo'!B24*0,2;SE(D23=3;'Memória de cálculo'!B24*0,09;SE(D23=4;'Memória de cálculo'!B24*0,16;SE(D23=5;'Memória de cálculo'!B24*0,28;SE(D23=6;'Memória de cálculo'!B24*0,52;SE(D23>=7;N28;"")))))))
+							D23 = Fonte de Fósforo a utilizar: (entrada de dados int)
+							B24(memoria) = Kg/Alqueire de (novo metodo) = B22*2,42
+								B22 = Aplicar(talvez novo metodo) = H16*100/G20
+									h16 = (talvez novo metodo) G14*100/F15/100
+										g14 = Transformando kg/ha de Fósforo em kg/ha de P2O5 (talvez novo metodo) = H12*2,29
+											h12 = ='EQUILIBRIO E CORREÇÃO NA CTC'!N72
+												n72 = ='Memória de cálculo'!H11*2
+													h11 = ='EQUILIBRIO E CORREÇÃO NA CTC'!Q72
+													q72 = =SE('Memória de cálculo'!E10<0,01;"0,0";'Memória de cálculo'!E10)
+														E10 = ='EQUILIBRIO E CORREÇÃO NA CTC'!D22-'EQUILIBRIO E CORREÇÃO NA CTC'!B11
+															D22 = Teor de Fósforo a atingir: ENTRADA DE DADOS
+															b11 = Fosforo (ENTRADA DE DADOS)
+										f15 =
+									g20 = 
+			F113 = 
+
+////////
+	dados referente "Participação atual na CTC do solo" do Cálcio
+	= P10 = F11/R6*100
+	f11 = calcio (entrada de dados), r6 = (r5 + l11)
+	OBS: o resultado final na saida de dados é em porcentagem.
+////////
+	dados referente "Participação atual na CTC do solo" do Magnésio
+	= H11/R6*100
+	H11 = magnesio (entrada de dados), r6 = (r5 + l11)
+	OBS: o resultado final na saida de dados é em porcentagem.

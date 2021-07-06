@@ -103,32 +103,7 @@ public class TestaValoresIdeais {
           public void testaNomeCorretivoHidroxidoDeCalcarioMagnesiano() {
                 assertEquals("CALCARIO MAGNESIANO", new NomeCorretivo().getNomeCorretivo(6));
         }
-
-         @Test
-        public void testaIdCorretivoDolomitico() {
-                assertEquals(1, new NomeCorretivo().getIDByNomeCorretivo("CALCARIO DOLOMITICO"));
-        }
-         @Test
-        public void testaIdCorretivoCalcitico() {
-                assertEquals(2, new NomeCorretivo().getIDByNomeCorretivo("CALCARIO CALCITICO"));
-        }
-         @Test
-        public void testaIdCorretivoCalcarioConcha() {
-                assertEquals(3, new NomeCorretivo().getIDByNomeCorretivo("CALCARIO DE CONCHA"));
-        }
-         @Test
-        public void testaIdCorretivoGessoAgricola() {
-                assertEquals(4, new NomeCorretivo().getIDByNomeCorretivo("GESSO AGRICOLA"));
-        }
-         @Test
-        public void testaIdCorretivoHidroDeCalcio() {
-                assertEquals(5, new NomeCorretivo().getIDByNomeCorretivo("HIDROXIDO DE CALCIO"));
-        }
-         @Test
-        public void testaIdCorretivoCalcarioMagnesiano() {
-                assertEquals(6, new NomeCorretivo().getIDByNomeCorretivo("CALCIO MAGNESIANO"));
-        }
-        
+          
         @Test 
         public void testaMagnesioIdealArgiloso(){
              assertEquals("10 a 15", new CorrecaoMagnesio().getMagnesioIdeal(1));

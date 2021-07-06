@@ -9,8 +9,9 @@ package edu.utfpr.cp.dacom.sa.soilcorrection;
  *
  * @author joeda
  */
-public class CorrecaoMagnesio {
+public class CorrecaoMagnesio implements CalculoCalcioMagnesio {
     
+    @Override
     public double somaPotassioCalcioMagnesio(double potassio, double calcio, double magnesio){
         return(potassio+calcio+magnesio);
     }
@@ -28,7 +29,14 @@ public class CorrecaoMagnesio {
         return null;
     }
     
+   // Responsável pelo campo "Participação atual na CTC do solo" da planilha (magnesio).
+    @Override
+    public double ParticipacaoCtcSolo(double magnesio, double somaPotassioCalcioMagnesio, double HAL) {
+       return (magnesio/(somaPotassioCalcioMagnesio+HAL)*100);
+    }
+    
     // Responsável pelo campo "Após as correções" da planilha (magnésio).
+    @Override
     public double CalculaCorrecao(double magnesioIdeal, double somaPotassioCalcioMagnesio, double HAL) {
        return (magnesioIdeal/(somaPotassioCalcioMagnesio+HAL)*100);
     }
