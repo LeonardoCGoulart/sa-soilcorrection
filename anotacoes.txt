@@ -106,3 +106,10 @@ de acordo com um numero retorna uma string.
 	= H11/R6*100
 	H11 = magnesio (entrada de dados), r6 = (r5 + l11)
 	OBS: o resultado final na saida de dados é em porcentagem.
+
+///////
+	Dados referente a Fonte:
+	- observado que possui um padrão de fontes
+	o que fazer provavelmente fazer em breve: 
+		- unificar calcio e magnesio conforme o professor mandou
+		- entender o padrão para desenvolver aplicar/custo

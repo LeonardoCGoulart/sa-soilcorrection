@@ -74,54 +74,24 @@ public class TestaValoresIdeais {
                                 .calculaCarbono(new EquilibrioCorrecaoCTC().calculaMOPercentual(30.7)));
         }
         
-        @Test
-        public void testaNomeCorretivoCalcarioDolomitico() {
-                assertEquals("CALCARIO DOLOMITICO", new NomeCorretivo().getNomeCorretivo(1));
-        }
-        
-        @Test
-        public void testaNomeCorretivoCalcarioCalcitico() {
-                assertEquals("CALCARIO CALCITICO", new NomeCorretivo().getNomeCorretivo(2));
-        }
-        
-        @Test
-        public void testaNomeCorretivoCalcarioDeConcha() {
-                assertEquals("CALCARIO DE CONCHA", new NomeCorretivo().getNomeCorretivo(3));
-        }
-        
-        @Test
-         public void testaNomeCorretivoGessoAgricola() {
-                assertEquals("GESSO AGRICOLA", new NomeCorretivo().getNomeCorretivo(4));
-        }
-         
-         @Test
-         public void testaNomeCorretivoHidroxidoDeCalcio() {
-                assertEquals("HIDROXIDO DE CALCIO", new NomeCorretivo().getNomeCorretivo(5));
-        }
-         
-         @Test
-          public void testaNomeCorretivoHidroxidoDeCalcarioMagnesiano() {
-                assertEquals("CALCARIO MAGNESIANO", new NomeCorretivo().getNomeCorretivo(6));
-        }
-          
         @Test 
         public void testaMagnesioIdealArgiloso(){
-             assertEquals("10 a 15", new CorrecaoMagnesio().getMagnesioIdeal(1));
+             assertEquals("10 a 15", new CorrecaoCalcioMagnesio().getMagnesioIdeal(1));
         }
 
         @Test 
         public void testaMagnesioIdealTexturaMedia(){
-             assertEquals("8 a 12", new CorrecaoMagnesio().getMagnesioIdeal(2));
+             assertEquals("8 a 12", new CorrecaoCalcioMagnesio().getMagnesioIdeal(2));
         }
 
         @Test 
         public void testaCalcioIdealArgiloso(){
-             assertEquals("45 a 55", new CorrecaoCalcio().getCalcioIdeal(1));
+             assertEquals("45 a 55", new CorrecaoCalcioMagnesio().getCalcioIdeal(1));
         }
 
         @Test 
         public void testaCalcioIdealTexturaMedia(){
-             assertEquals("35 a 40", new CorrecaoCalcio().getCalcioIdeal(2));
+             assertEquals("35 a 40", new CorrecaoCalcioMagnesio().getCalcioIdeal(2));
         }
         
        
