@@ -65,4 +65,15 @@ public class CorrecaoCalcioMagnesio  {
         return null;
     }
     
+    //responsavel pelo campo "quantidade a aplicar" 
+    public double getQuandidadeAplicarTonHa(double qtdCorretivo, double prnt){
+        if(prnt <= 0)
+            return 0;
+        
+        if(qtdCorretivo <= 0)
+            return 0;
+        
+        return(qtdCorretivo*100/prnt);
+    }
+    
 }
