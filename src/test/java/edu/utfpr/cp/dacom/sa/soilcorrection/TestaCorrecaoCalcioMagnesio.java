@@ -28,6 +28,11 @@ public class TestaCorrecaoCalcioMagnesio {
         assertEquals(1.8428571428571427, new CorrecaoCalcioMagnesio().getQuandidadeAplicarTonHa(1.29, 70.00)); // 1.85 arredondado
     }
     
-
+     @Test
+    public void testaCustoRsHa() { 
+        var qtdAplicar = 1.845293978571427*1000.00; // qtdAplicar = 1,85 arredondado e  é multiplicado para conversão 
+        assertEquals(922.6469892857135, new CorrecaoCalcioMagnesio().getCustoEmRsPorHa(500.00, qtdAplicar)); 
+    }
+    
     
 }

@@ -76,4 +76,14 @@ public class CorrecaoCalcioMagnesio  {
         return(qtdCorretivo*100/prnt);
     }
     
+    //responsavel pelo campo "custo R$/ha"   
+    public double getCustoEmRsPorHa(double custo, double qtdAplicar){
+        if(custo <= 0)
+            return 0;
+        
+        if(qtdAplicar <= 0)
+            return 0;
+        
+        return(custo*qtdAplicar/1000);
+    }
 }
