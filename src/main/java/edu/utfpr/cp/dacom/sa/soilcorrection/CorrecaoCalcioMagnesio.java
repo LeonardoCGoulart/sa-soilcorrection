@@ -9,7 +9,7 @@ package edu.utfpr.cp.dacom.sa.soilcorrection;
  *
  * @author joeda
  */
-public class CorrecaoCalcioMagnesio  {
+public class CorrecaoCalcioMagnesio implements ICorrecaoNutriente<FonteCalcioMagnesio> {
     
 
     public double somaPotassioCalcioMagnesio(double potassio, double calcio, double magnesio){
@@ -85,5 +85,15 @@ public class CorrecaoCalcioMagnesio  {
             return 0;
         
         return(custo*qtdAplicar/1000);
+    }
+    
+    //responsavel pelo campo "fonte de corretivo a usar" (D52)
+    private final String nome[] = {"NULL", "CALCARIO DOLOMITICO", "CALCARIO CALCITICO", "CALCARIO DE CONCHA", "GESSO AGRICOLA", "HIDROXIDO DE CALCIO", "CALCARIO MAGNESIANO"};
+    
+    public String getNomeCorretivo(int pos){ // capta o nome pelo ID
+        if(pos > 6)
+            return "NULL";
+        
+        return(nome[pos]);
     }
 }

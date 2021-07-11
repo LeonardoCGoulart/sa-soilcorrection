@@ -113,3 +113,16 @@ de acordo com um numero retorna uma string.
 	o que fazer provavelmente fazer em breve: 
 		- unificar calcio e magnesio conforme o professor mandou
 		- entender o padrão para desenvolver aplicar/custo
+//////
+Quantidade Aplicar:
+	T70*100/C53
+	quantidade corretivo aplicar x 100 / prnt%
+///// 		
+	Custo R$ = P104/2,42
+				p104 = SE(D52=5;('Memória de cálculo'!A116*K58);SE(D52=6;('Memória de cálculo'!A116*K59);SE(D52=7;('Memória de cálculo'!A116*N175);"")))))))
+				onde D52 = nutriente/entrada de dados		
+////
+FonteCalcioMagnesio
+célula: O102
+=SE(D52=1;"30,4";SE(D52=2;"56";SE(D52=3;"54";SE(D52=4;"29";SE(D52=5;"75,7";SE(D52=6;"35";""))))))
+	
