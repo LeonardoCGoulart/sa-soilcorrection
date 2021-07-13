@@ -26,7 +26,7 @@ public class CorrecaoCalcioMagnesio implements ICorrecaoNutriente<FonteCalcioMag
                 return "8 a 12";
             }
         }
-        return null;
+        throw new IllegalArgumentException();
     }
     
    // Responsável pelo campo "Participação atual na CTC do solo" da planilha (magnesio).
@@ -35,7 +35,7 @@ public class CorrecaoCalcioMagnesio implements ICorrecaoNutriente<FonteCalcioMag
     }
     
     // Responsável pelo campo "Após as correções" da planilha (magnésio).
-    public double CalculaCorrecaoMagnesio(double magnesioIdeal, double somaPotassioCalcioMagnesio, double HAL) {
+    public double AposCorrecaoMagnesio(double magnesioIdeal, double somaPotassioCalcioMagnesio, double HAL) {
        return (magnesioIdeal/(somaPotassioCalcioMagnesio+HAL)*100);
     }
     
@@ -62,30 +62,20 @@ public class CorrecaoCalcioMagnesio implements ICorrecaoNutriente<FonteCalcioMag
                 return "35 a 40";
             }
         }
-        return null;
+        throw new IllegalArgumentException();
     }
     
     //responsavel pelo campo "quantidade a aplicar" 
     public double getQuandidadeAplicarTonHa(double qtdCorretivo, double prnt){
         if(prnt <= 0)
-            return 0;
+        	throw new IllegalArgumentException();
         
         if(qtdCorretivo <= 0)
-            return 0;
+        	throw new IllegalArgumentException();
         
         return(qtdCorretivo*100/prnt);
     }
     
-    //responsavel pelo campo "custo R$/ha"   
-    public double getCustoEmRsPorHa(double custo, double qtdAplicar){
-        if(custo <= 0)
-            return 0;
-        
-        if(qtdAplicar <= 0)
-            return 0;
-        
-        return(custo*qtdAplicar/1000);
-    }
     
     //responsavel pelo campo "fonte de corretivo a usar" (D52)
     private final String nome[] = {"NULL", "CALCARIO DOLOMITICO", "CALCARIO CALCITICO", "CALCARIO DE CONCHA", "GESSO AGRICOLA", "HIDROXIDO DE CALCIO", "CALCARIO MAGNESIANO"};

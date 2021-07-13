@@ -21,7 +21,7 @@ public class TestaCorrecaoCalcioMagnesio {
     @Test
     public void testaCorrecaoMagnesio() {
         double somaPotassioCalcioMagnesio = new CorrecaoCalcioMagnesio().somaPotassioCalcioMagnesio(0.15, 5.76, 1.63);
-        assertEquals(13.886733902249807, new CorrecaoCalcioMagnesio().CalculaCorrecaoMagnesio(1.79,somaPotassioCalcioMagnesio,5.35));
+        assertEquals(13.886733902249807, new CorrecaoCalcioMagnesio().AposCorrecaoMagnesio(1.79,somaPotassioCalcioMagnesio,5.35));
     }
     @Test
     public void testaQuantidadeAplicarTonHa() { 
@@ -31,7 +31,7 @@ public class TestaCorrecaoCalcioMagnesio {
      @Test
     public void testaCustoRsHa() { 
         var qtdAplicar = 1.845293978571427*1000.00; // qtdAplicar = 1,85 arredondado e  é multiplicado para conversão 
-        assertEquals(922.6469892857135, new CorrecaoCalcioMagnesio().getCustoEmRsPorHa(500.00, qtdAplicar)); 
+        assertEquals(922.6469892857135, new CorrecaoCalcioMagnesio().calculaCusto(500.00, qtdAplicar)); 
     }
     
     
