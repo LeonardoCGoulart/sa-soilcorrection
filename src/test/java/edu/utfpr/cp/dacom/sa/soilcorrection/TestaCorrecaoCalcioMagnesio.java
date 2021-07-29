@@ -1,38 +1,67 @@
 package edu.utfpr.cp.dacom.sa.soilcorrection;
 
-import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
 
 public class TestaCorrecaoCalcioMagnesio {
 
-     @Test
-    public void testaParticipacaoCtcSoloMagnesio() {
-        double somaPotassioCalcioMagnesio = new CorrecaoCalcioMagnesio().somaPotassioCalcioMagnesio(0.15, 5.76, 1.63);
-        assertEquals(12.645461598138091, new CorrecaoCalcioMagnesio().ParticipacaoCtcSoloMagnesio(1.63,somaPotassioCalcioMagnesio,5.35));
-    }   
-    
-     @Test
-    public void testaParticipacaoCtcSoloCalcio() {
-        double somaPotassioCalcioMagnesio = new CorrecaoCalcioMagnesio().somaPotassioCalcioMagnesio(0.15, 5.76, 1.63);
-        assertEquals(44.68580294802172, new CorrecaoCalcioMagnesio().ParticipacaoCtcSoloCalcio(5.76,somaPotassioCalcioMagnesio,5.35));
-    }
-    
     @Test
-    public void testaCorrecaoMagnesio() {
-        double somaPotassioCalcioMagnesio = new CorrecaoCalcioMagnesio().somaPotassioCalcioMagnesio(0.15, 5.76, 1.63);
-        assertEquals(13.886733902249807, new CorrecaoCalcioMagnesio().AposCorrecaoMagnesio(1.79,somaPotassioCalcioMagnesio,5.35));
+    public void testaCustoReaisHa() {
+
+        var correcaoCalcioMagnesio = new CorrecaoCalcioMagnesio();
+
+        var qtdeCalcioMagnesioAplicarKgHa = 1844.76;
+
+        assertEquals(
+            922.68, 
+            correcaoCalcioMagnesio.calculaCusto(
+                500.0, 
+                qtdeCalcioMagnesioAplicarKgHa),
+            0.5);
     }
+
     @Test
-    public void testaQuantidadeAplicarTonHa() { 
-        assertEquals(1.8428571428571427, new CorrecaoCalcioMagnesio().getQuandidadeAplicarTonHa(1.29, 70.00)); // 1.85 arredondado
+    public void testaNutrientesAdicionais() {
+
+        var correcaoCalcioMagnesio = new CorrecaoCalcioMagnesio();
+        
+        var qtdeCalcioMagnesioAplicarKgHa = 1844.76;
+
+        assertEquals(
+            1, 
+            correcaoCalcioMagnesio.getNutrientesAdicionais(
+                    qtdeCalcioMagnesioAplicarKgHa, 
+                    FonteCalcioMagnesio.GESSO_AGRICOLA)
+                        .size());
+
+        qtdeCalcioMagnesioAplicarKgHa = 3.51 * 1000;
+
+        assertEquals(
+            526.16, 
+            correcaoCalcioMagnesio.getNutrientesAdicionais(
+                qtdeCalcioMagnesioAplicarKgHa, 
+                    FonteCalcioMagnesio.GESSO_AGRICOLA)
+                        .stream()
+                        .findFirst()
+                        .get()
+                        .getCorrecaoAdicional(),
+            0.5);
     }
-    
-     @Test
-    public void testaCustoRsHa() { 
-        var qtdAplicar = 1.845293978571427*1000.00; // qtdAplicar = 1,85 arredondado e  é multiplicado para conversão 
-        assertEquals(922.6469892857135, new CorrecaoCalcioMagnesio().calculaCusto(500.00, qtdAplicar)); 
+
+    @Test
+    public void testaQtdeAplicar() {
+
+        double qtdeFonteAdicionar = 1.291755;
+        double prntPercent = 0.7;
+
+        assertEquals(1.85, 
+            new CorrecaoCalcioMagnesio()
+                .calculaQuantidadeAplicar(
+                    qtdeFonteAdicionar, 
+                    prntPercent),
+            0.05);
+
     }
-    
-    
+
 }
