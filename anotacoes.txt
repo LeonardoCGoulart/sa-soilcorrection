@@ -126,3 +126,16 @@ FonteCalcioMagnesio
 célula: O102
 =SE(D52=1;"30,4";SE(D52=2;"56";SE(D52=3;"54";SE(D52=4;"29";SE(D52=5;"75,7";SE(D52=6;"35";""))))))
 	
+-------------------- ANOTAÇÕES LOMBOK ---------------------
+
+funcionalidades do lombok que podem contribuir com a manutenibilidade
+1 - criar getters/setter/construtores... usando @Data (cria todos) ou @Getter,@Setter, etc... (individual)
+pois irá diminuir linhas e deixar o código mais legível.
+
+2 - @builder pode ser útil para o soilcorrection na parte de criar objetos com mais manutenibilidade
+
+3 - @SneakyThrows pode ser interessante para deixar as exceções com menos linha!
+
+4 - @Log 4j2 pode ajudar nos logs gerando informações
+
+5 - O java 15 possui o record, mas deve-se usar record apenas para variaveis finais, caso contrario use o LOMBOK!
