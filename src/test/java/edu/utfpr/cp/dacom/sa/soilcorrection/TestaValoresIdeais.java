@@ -1,5 +1,8 @@
 package edu.utfpr.cp.dacom.sa.soilcorrection;
 
+import edu.utfpr.cp.dacom.sa.soilcorrection.correcoes.EquilibrioCorrecaoCTC;
+import edu.utfpr.cp.dacom.sa.soilcorrection.nutrientes.NutrientesCTC;
+import edu.utfpr.cp.dacom.sa.soilcorrection.texturaSolo.TexturaSolo;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -73,7 +76,7 @@ public class TestaValoresIdeais {
                 assertEquals(17.848837209302324, new EquilibrioCorrecaoCTC()
                                 .calculaCarbono(new EquilibrioCorrecaoCTC().calculaMOPercentual(30.7)));
         }
-        
+
         @Test 
         public void testaMagnesioIdealArgiloso(){
              assertEquals("10 a 15", new CorrecaoCalcioMagnesio().getMagnesioIdeal(1));
@@ -93,7 +96,7 @@ public class TestaValoresIdeais {
         public void testaCalcioIdealTexturaMedia(){
              assertEquals("35 a 40", new CorrecaoCalcioMagnesio().getCalcioIdeal(2));
         }
-        
+
        
  
 
